@@ -1,4 +1,4 @@
-import 'src/styles/main.scss'
+import 'src/styles/global.css'
 import Head from 'next/head'
 import type { AppProps } from 'next/app'
 import { store, persistor } from 'src/store'
