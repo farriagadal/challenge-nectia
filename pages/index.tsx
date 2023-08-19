@@ -1,16 +1,9 @@
-import styled from 'styled-components'
+import Login from 'src/components/Login'
 
 const HomePage = () => {
   return (
-    <Container>
-      Home
-    </Container>
+    <Login />
   )
 }
-
-const Container = styled.div`
-  display: grid;
-  width: 100%;
-`
 
 export default HomePage

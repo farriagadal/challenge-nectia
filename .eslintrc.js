@@ -28,6 +28,7 @@ module.exports = {
       'error',
       2
     ],
+    'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
     'import/no-anonymous-default-export': 'off',
     'linebreak-style': 'off',
