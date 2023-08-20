@@ -8,16 +8,31 @@ Este proyecto consiste en una aplicación React que simula un backend y un front
 
 ### Simulación de Backend con Next.js
 
-- **API de Usuarios (Login)**: Retorna un token JWT al recibir por POST un `user` y `password`.
+- **API de Usuarios (Login)**: Retorna un token JWT al recibir por POST un `username` y `password`.
 - **API de Validación (validate-token)**: Se utiliza para validar el token del frontend.
 - **API de Productos (products)**: Permite realizar operaciones CRUD sobre productos.
 - **API de Producto Individual (products_id)**: Permite realizar operaciones sobre un producto específico mediante su ID.
 
 ### Frontend
 
-- **Vista de Login**: Consume el servicio dummy que retorna el token JWT. Recibe `user` y `password`.
+- **Vista de Login**: Consume el servicio dummy que retorna el token JWT. Recibe `username` y `password`.
 - **Vista Principal**: Tras autenticarse, se redirige a esta vista donde se encuentra un listado de productos y en donde se consumen los servicios CRUD.
-- **Cabecera de Autorización**: Cada petición realizada a los servicios incluye en la cabecera el parámetro “Authorization“ con el valor del token retornado por el servicio de usuario.
+- **Cabecera de Autorización**: Cada petición realizada a los servicios incluye en la cabecera el parámetro “Authorization“ con el token obtenido en el Login.
+
+### Uso de Cookies
+
+Se optó por utilizar cookies en lugar de localStorage por varias razones:
+
+- **Seguridad**: Las cookies son más seguras ya que pueden ser configuradas como HttpOnly, lo que significa que no pueden ser accedidas mediante JavaScript. Esto previene ataques como el Cross-Site Scripting (XSS).
+- **Expiración**: Las cookies pueden tener una fecha de expiración, lo que permite manejar sesiones de manera más efectiva.
+- **Alcance**: Las cookies pueden ser configuradas para ser enviadas solamente en ciertas rutas o dominios.
+
+### Redux Toolkit
+
+Se utiliza Redux Toolkit para el manejo eficiente del estado de la aplicación. Específicamente:
+
+- **Productos**: Se maneja el estado de los productos, permitiendo realizar operaciones CRUD de manera eficiente y organizada.
+- **Datos del Usuario**: Se almacenan y gestionan los datos del usuario, facilitando la autenticación y otras operaciones relacionadas.
 
 ## 🛠 Requisitos de Instalación
 
