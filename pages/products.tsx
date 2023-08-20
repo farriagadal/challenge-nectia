@@ -1,16 +1,22 @@
 import ProductList from 'src/components/ProductList'
 import authMiddleware from 'src/middlewares/authMiddleware'
+import axios from 'src/api'
+import { useEffect } from 'react'
+import { setProducts } from 'src/store/slices/productSlice'
+import { useDispatch } from 'react-redux'
 
 export default function ProductsPage() {
-  const products = [
-    { id: 1, name: 'Producto 1', description: 'Descripción del producto 1', price: '10.00' },
-    { id: 2, name: 'Producto 2', description: 'Descripción del producto 2', price: '20.00' },
-    { id: 3, name: 'Producto 3', description: 'Descripción del producto 3', price: '30.00' },
-  ]
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    axios.get('/products').then((response: any) => {
+      dispatch(setProducts(response))
+    })
+  }, [])
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      <ProductList products={products} />
+    <div className="min-h-screen max-w-[800px] mx-auto">
+      <ProductList />
     </div>
   )
 }

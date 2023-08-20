@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import axios from 'src/axios'
+import axios from 'src/api'
 import Cookies from 'js-cookie'
 import Router from 'next/router'
 
@@ -15,7 +15,7 @@ function Login() {
     }
     axios.post('/login', { username, password }).then((response: any) => {
       const token = response.accessToken
-      // Almacenar el token en las cookies
+      // Se guarda el token en las cookies
       if (token) {
         Cookies.set('token', token, { expires: 7 })  // El token expirará en 7 días.
         Router.push('/products')
@@ -32,7 +32,7 @@ function Login() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="p-8 bg-white shadow-lg rounded-lg">
+      <div className="p-8 bg-white w-96 shadow-lg rounded-lg">
         <h2 className="text-2xl mb-4">Iniciar sesión</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
@@ -63,7 +63,7 @@ function Login() {
               placeholder="Introduce tu contraseña"
             />
           </div>
-          <button type="submit" className="w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+          <button type="submit" className="w-full bg-blue-500 text-white font-bold px-4 py-2 rounded hover:bg-blue-600">
             Entrar
           </button>
         </form>

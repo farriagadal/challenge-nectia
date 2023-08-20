@@ -1,6 +1,6 @@
 import { NextPageContext } from 'next'
 import Router from 'next/router'
-import axios from 'src/axios'
+import axios from 'src/api'
 import cookie from 'cookie'
 
 const authMiddleware = async (ctx: NextPageContext) => {
