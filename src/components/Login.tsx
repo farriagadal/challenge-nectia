@@ -33,7 +33,7 @@ function Login() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="p-8 bg-white w-96 shadow-lg rounded-lg">
-        <h2 className="text-2xl mb-4">Iniciar sesión</h2>
+        <h2 className="text-2xl text-center mb-8 font-bold">Iniciar sesión</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-sm font-medium mb-2" htmlFor="username">

@@ -25,32 +25,40 @@ export default function ProductList() {
   }
 
   return (
-    <div className="p-4">
-      <h2 className="text-3xl font-bold mb-5">Lista de Productos</h2>
+    <div className="px-4 py-8">
+      <h2 className="text-3xl font-bold my-8">Lista de Productos</h2>
 
-      <div className="mb-4 flex gap-3">
-        <input
-          className='p-2 border border-blue-500 border-opacity-75 rounded'
-          value={newProduct.name} 
-          onChange={(e) => setNewProduct(prev => ({ ...prev, name: e.target.value }))} 
-          placeholder="Nombre del producto"
-        />
-        <input
-          className='p-2 border border-blue-500 border-opacity-75 rounded'
-          value={newProduct.description}
-          onChange={(e) => setNewProduct(prev => ({ ...prev, description: e.target.value }))}
-          placeholder="Descripción del producto"
-        />
-        <input
-          className='p-2 border border-blue-500 border-opacity-75 rounded'
-          type="number" 
-          value={newProduct.price}
-          onChange={(e) => setNewProduct(prev => ({ ...prev, price: parseInt(e.target.value) }))}
-          placeholder="Precio"
-        />
-        <button onClick={handleAdd} className='bg-blue-500 text-white font-bold px-4 py-2 rounded hover:bg-blue-600'>Crear</button>
+      <div className="mb-4 flex-col gap-3 sm:flex sm:flex-row border p-4 rounded-md shadow-md">
+        <label className="block w-full">
+          <span className='block text-sm font-medium mb-2'>Nombre del producto</span>
+          <input
+            className='p-2 border rounded w-full mb-2 sm:mb-0'
+            value={newProduct.name} 
+            onChange={(e) => setNewProduct(prev => ({ ...prev, name: e.target.value }))} 
+            placeholder="Nombre del producto"
+          />
+        </label>
+        <label className="block w-full">
+          <span className='block text-sm font-medium mb-2'>Descripción del producto</span>
+          <input
+            className='p-2 border rounded w-full mb-2 sm:mb-0'
+            value={newProduct.description}
+            onChange={(e) => setNewProduct(prev => ({ ...prev, description: e.target.value }))}
+            placeholder="Descripción del producto"
+          />
+        </label>
+        <label className="block w-full">
+          <span className='block text-sm font-medium mb-2'>Precio ($)</span>
+          <input
+            className='p-2 border rounded w-full mb-2 sm:mb-0'
+            type="number" 
+            value={newProduct.price}
+            onChange={(e) => setNewProduct(prev => ({ ...prev, price: parseInt(e.target.value) }))}
+            placeholder="Precio"
+          />
+        </label>
+        <button onClick={handleAdd} className='bg-blue-500 text-white font-bold px-4 py-2 rounded hover:bg-blue-600 w-full sm:w-auto self-end'>Crear</button>
       </div>
-
       <ul className="space-y-4">
         {productList.map((product: any) => (
           <ProductItem key={product.id} product={product} />

@@ -41,12 +41,12 @@ export default function ProductItem({ product }: ProductProps) {
       {isEditing ? (
         <div className='flex gap-3'>
           <input
-            className='p-2'
+            className='p-2 border rounded w-full mb-2 sm:mb-0'
             value={editedProduct.name} 
             onChange={(e) => setEditedProduct(prev => ({ ...prev, name: e.target.value }))} 
           />
           <input
-            className='p-2'
+            className='p-2 border rounded w-full mb-2 sm:mb-0'
             value={editedProduct.description}
             onChange={(e) => setEditedProduct(prev => ({ ...prev, description: e.target.value }))}
           />
@@ -56,7 +56,7 @@ export default function ProductItem({ product }: ProductProps) {
       ) : (
         <div className='flex'>
           <div>
-            <h3 className="text-xl mb-2">{product.name}</h3>
+            <h3 className="text-xl mb-2 font-medium">{product.name}</h3>
             <p className="text-gray-600 mb-2">{product.description}</p>
             <span className="text-blue-500">${product.price}</span>
           </div>
