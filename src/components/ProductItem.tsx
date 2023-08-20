@@ -1,4 +1,4 @@
-import axios from 'src/api'
+import api from 'src/api'
 import React, { useState } from 'react'
 import { updateProduct, deleteProduct } from 'src/store/slices/productSlice'
 import { useDispatch } from 'react-redux'
@@ -19,7 +19,7 @@ export default function ProductItem({ product }: ProductProps) {
   const [editedProduct, setEditedProduct] = useState(product)
 
   const handleUpdate = async () => {
-    axios.put(`/products/${product.id}`, editedProduct).then((response: any) => {
+    api.put(`/products/${product.id}`, editedProduct).then((response: any) => {
       dispatch(updateProduct(editedProduct))
       setIsEditing(false)
     }).catch((error: any) => {
@@ -28,7 +28,7 @@ export default function ProductItem({ product }: ProductProps) {
   }
 
   const handleDelete = async () => {
-    axios.put(`/products/${product.id}`, editedProduct).then((response: any) => {
+    api.put(`/products/${product.id}`, editedProduct).then((response: any) => {
       dispatch(deleteProduct(product.id))
       setIsEditing(false)
     }).catch((error: any) => {

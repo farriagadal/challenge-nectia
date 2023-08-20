@@ -1,6 +1,6 @@
 import { NextPageContext } from 'next'
 import Router from 'next/router'
-import axios from 'src/api'
+import api from 'src/api'
 import cookie from 'cookie'
 
 const authMiddleware = async (ctx: NextPageContext) => {
@@ -24,7 +24,7 @@ const authMiddleware = async (ctx: NextPageContext) => {
   }
 
   try {
-    await axios.post('/validate-token', { token })
+    await api.post('/validate-token', { token })
   } catch (err) {
     if (ctx.res) {
       ctx.res.writeHead(302, { Location: '/login' }).end()

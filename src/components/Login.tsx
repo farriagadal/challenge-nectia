@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
-import axios from 'src/api'
+import api from 'src/api'
 import Cookies from 'js-cookie'
 import Router from 'next/router'
+import { setUser } from 'src/store/slices/userSlice'
+import { useDispatch } from 'react-redux'
 
 function Login() {
+  const dispatch = useDispatch()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
@@ -13,10 +16,11 @@ function Login() {
       alert('Please enter your username and password')
       return
     }
-    axios.post('/login', { username, password }).then((response: any) => {
+    api.post('/login', { username, password }).then((response: any) => {
       const token = response.accessToken
       // Se guarda el token en las cookies
       if (token) {
+        dispatch(setUser(response))
         Cookies.set('token', token, { expires: 7 })  // El token expirará en 7 días.
         Router.push('/products')
       } else {

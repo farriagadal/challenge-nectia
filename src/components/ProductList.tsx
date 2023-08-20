@@ -1,4 +1,4 @@
-import axios from 'src/api' 
+import api from 'src/api' 
 import React, { useState } from 'react'
 import ProductItem from './ProductItem'
 import { useSelector } from 'react-redux'
@@ -13,7 +13,7 @@ export default function ProductList() {
 
   const handleAdd = async () => {
     try {
-      axios.post('/products', newProduct).then((response: any) => {
+      api.post('/products', newProduct).then((response: any) => {
         dispatch(addProduct({ id: productList.length + 1, ...newProduct }))
         setNewProduct({ name: '', description: '', price: 0 })
       }).catch((error: any) => {
