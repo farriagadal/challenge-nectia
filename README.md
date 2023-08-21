@@ -72,6 +72,4 @@ yarn dev
 5. **Visualización**: Abre tu navegador y visita `http://localhost:3000` para disfrutar de la aplicación en funcionamiento.
 
 
-6. **Demo**: https://challenge-nectia.vercel.app/
-
 ---
